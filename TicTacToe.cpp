@@ -163,7 +163,8 @@ void playTicTacToe(string b[], string p1, string p2)
 	}
 	
 	cout << endl;
-
+	
+	drawBoard(b, p1, p2);
 	ticTacToString(num);
 	
 }
@@ -218,8 +219,10 @@ int main()
 				break;	
 			}
 			else if(ans == "Y")
+			{	
+				cout << "---------------------------------------------------" << endl;
 				break;
-
+			}
 		}
 	}
 	
