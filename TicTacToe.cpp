@@ -17,7 +17,7 @@ void ticTacToString(int n)
 	cout << endl;
 }
 
-string getWinner(string a[], string p1, string p2)
+int getWinner(string a[], string p1, string p2)
 {
 	
 	// straight down/up checker
@@ -26,9 +26,9 @@ string getWinner(string a[], string p1, string p2)
 		if(a[i] == a[i+3] && a[i] == a[i+6])
 		{
 			if(a[i] == p1)
-				return "Player 1";
+				return 1;
 			else
-				return "Player 2";
+				return 2;
 		}
 	}
 
@@ -38,9 +38,9 @@ string getWinner(string a[], string p1, string p2)
 		if(a[i] == a[i+1] && a[i] == a[i+2])
 		{
 			if(a[i] == p1)
-				return "Player 1";
+				return 1;
 			else
-				return "Player 2";
+				return 2;
 		}
 	}
 
@@ -48,14 +48,16 @@ string getWinner(string a[], string p1, string p2)
 	if(a[0] == a[4] && a[0] == a[8]) 
 	{
 		if(a[0] == p1)
-			 return "Player 1"; 
-		 return "Player 2"; 
+			 return 1; 
+		
+		return 2; 
 	}
 	else if(a[2] == a[4] && a[2] == a[6])
 	{
 		if(a[2] == p1)
-			 return "Player 1"; 
-		 return "Player 2"; 
+			 return 1; 
+		
+		return 2; 
 		
 	}
 
@@ -71,26 +73,11 @@ string getWinner(string a[], string p1, string p2)
 	}
 
 	if(prog)
-		return "Still In Progress";
+		return -1;
 	else
-		return "Tie";
-
-}
-
-int isGameDone(string a[], string p1, string p2)
-{
-	string w = getWinner(a, p1, p2);
-
-	if(w == "Player 1")
-		return 1;
-	else if(w == "Player 2")
-		return 2;
-	else if(w == "Tie")
 		return 0;
-	
-	return -1;	
-}
 
+}
 
 void drawBoard(string a[], string p1, string p2)
 {
@@ -154,7 +141,7 @@ void playTicTacToe(string b[], string p1, string p2)
 		
 		b[num-1] = c; 
 		
-		num = isGameDone(b, p1, p2);
+		num = getWinner(b, p1, p2);
 		
 		if(num != -1)
 			break;
