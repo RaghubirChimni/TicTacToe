@@ -124,14 +124,17 @@ void drawBoard(string a[], string p1, string p2)
 void playTicTacToe(string b[], string p1, string p2)
 {
 	bool win = false;
-	int a = 0;
+	int a = 0, num = 0, round = 1;
 	string c = "";
-	int num = 0;
 
-	cout << "Enter a number to put your character there" << endl; 
-
+	cout << "Enter a number to put your character there" << endl << endl;
+	
 	while(!win)
 	{
+		cout << "---------------------------------------------------\nRound: " << round++ << endl; 
+		cout << "---------------------------------------------------" << endl;
+	
+	
 		drawBoard(b, p1, p2);
 
 		cout << endl;	
@@ -148,13 +151,15 @@ void playTicTacToe(string b[], string p1, string p2)
 		}
 		
 		cin >> num;
-
+		
 		b[num-1] = c; 
 		
 		num = isGameDone(b, p1, p2);
 		
 		if(num != -1)
 			break;
+
+		cout << endl;
 	}
 	
 	cout << endl;
@@ -192,7 +197,7 @@ int main()
 		cout << endl << "Player 2, what character do you want? Enter Here: "; 
 		cin >> player2;
 		
-		cout << endl;
+		cout << endl << endl;
 		
 		playTicTacToe(board, player1, player2);
 
