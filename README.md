@@ -1,6 +1,6 @@
 # TicTacToe
 
-**A TicTacToe game created by Raghubir Chimni using C++.<br /><br />**
+**A TicTacToe game created by Raghubir Chimni using C++.<br />**
 
 **<br /><br />How to play:** 
 1. Download all of the files in this repository
